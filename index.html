@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Andong | The Capital of Korean Mental Culture</title>
+  <meta name="description" content="Ultimate travel guide to Andong, South Korea for international travelers. Explore UNESCO World Heritage Hahoe Village, Woryeonggyo Bridge, Jjimdak gourmet food, etiquette, interactive maps & custom itineraries.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Leaflet CSS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navigation Header -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo">
+        <span class="logo-hanja">安東</span>
+        <span class="logo-text">ANDONG <span class="badge-heritage">UNESCO</span></span>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#destinations" class="nav-item"><i class="fa-solid fa-landmark"></i> <span id="navSpots">Top Spots</span></a>
+        <a href="#food" class="nav-item"><i class="fa-solid fa-utensils"></i> <span id="navFood">Cuisine & Drinks</span></a>
+        <a href="#itineraries" class="nav-item"><i class="fa-solid fa-route"></i> <span id="navItinerary">Itinerary</span></a>
+        <a href="#map-section" class="nav-item"><i class="fa-solid fa-map-location-dot"></i> <span id="navMap">Interactive Map</span></a>
+        <a href="#transport" class="nav-item"><i class="fa-solid fa-train-subway"></i> <span id="navTransport">Transport</span></a>
+        <a href="#tips" class="nav-item"><i class="fa-solid fa-circle-question"></i> <span id="navTips">Survival Tips</span></a>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-selector">
+          <button class="lang-btn active" data-lang="en">EN</button>
+          <span class="divider">/</span>
+          <button class="lang-btn" data-lang="ko">KR</button>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag animate-up">
+        <i class="fa-solid fa-feather-pointed"></i> <span id="heroTagText">The Spiritual Capital of Korea</span>
+      </div>
+      <h1 class="hero-title animate-up delay-1" id="heroTitle">
+        Step Into 600 Years of Living Tradition
+      </h1>
+      <p class="hero-subtitle animate-up delay-2" id="heroSubtitle">
+        From the mist-shrouded traditional thatched roofs of Hahoe Folk Village to the illuminated timber spans of Woryeonggyo Bridge and savory Andong Jjimdak. Your comprehensive English survival guide.
+      </p>
+      
+      <div class="hero-cta-group animate-up delay-3">
+        <a href="#destinations" class="btn btn-primary"><i class="fa-solid fa-compass"></i> <span id="heroBtnStart">Start Exploring</span></a>
+        <a href="#map-section" class="btn btn-glass"><i class="fa-solid fa-map-pin"></i> <span id="heroBtnMap">View Map & Routes</span></a>
+      </div>
+
+      <!-- Quick Quick-Stats Bar -->
+      <div class="hero-stats animate-up delay-4">
+        <div class="stat-item">
+          <span class="stat-number" id="stat1Val">2h</span>
+          <span class="stat-label" id="stat1Label">From Seoul via KTX-Eum</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat2Val">3+</span>
+          <span class="stat-label" id="stat2Label">UNESCO World Heritage Sites</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat3Val">600+</span>
+          <span class="stat-label" id="stat3Label">Years of Living Joseon Heritage</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number" id="stat4Val">100%</span>
+          <span class="stat-label" id="stat4Label">English Transit & Etiquette Ready</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="hero-scroll-down">
+      <a href="#destinations" aria-label="Scroll down">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Essential Quick Info Cards -->
+  <section class="quick-info-bar">
+    <div class="container info-grid">
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-train"></i></div>
+        <div class="info-text">
+          <h4 id="info1Title">Seoul to Andong (KTX)</h4>
+          <p id="info1Desc">Cheongnyangni Stn ➔ Andong Stn in just <strong>2 hours</strong> (KRW ~25,000).</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-bus-simple"></i></div>
+        <div class="info-text">
+          <h4 id="info2Title">Bus #210 to Hahoe</h4>
+          <p id="info2Desc">Departs right outside Andong Station platform directly to Hahoe Folk Village.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-credit-card"></i></div>
+        <div class="info-text">
+          <h4 id="info3Title">Foreign Cards Accepted</h4>
+          <p id="info3Desc">Visa/Mastercard widely accepted; T-Money card recommended for local buses.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <div class="info-icon"><i class="fa-solid fa-phone-volume"></i></div>
+        <div class="info-text">
+          <h4 id="info4Title">Korea Travel Helpline 1330</h4>
+          <p id="info4Desc">24/7 free interpretation in English, Japanese, and Chinese from any phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Attractions Section -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" id="spotsBadge">MUST-VISIT HIGHLIGHTS</span>
+        <h2 class="section-title" id="spotsTitle">Iconic Wonders of Andong</h2>
+        <p class="section-desc" id="spotsDesc">Curated historical, cultural, and scenic attractions with traveler tips, photography guides, and bus directions.</p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all" id="filterAll">All Sites</button>
+        <button class="filter-btn" data-filter="unesco" id="filterUnesco">UNESCO Heritage</button>
+        <button class="filter-btn" data-filter="nature" id="filterNature">Scenic & Romantic</button>
+        <button class="filter-btn" data-filter="cultural" id="filterCultural">Academy & Scholar</button>
+        <button class="filter-btn" data-filter="night" id="filterNight">Night Views</button>
+      </div>
+
+      <!-- Destinations Grid -->
+      <div class="destinations-grid" id="destinationsGrid">
+        <!-- Injected via JavaScript with current language -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Map & Wayfinding Section -->
+  <section class="section map-section-wrapper" id="map-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-badge" id="mapBadge">INTERACTIVE NAVIGATOR</span>
+        <h2 class="section-title" id="mapTitle">Andong Tourist Map & Routes</h2>
+        <p class="section-desc" id="mapDesc">Click markers on the interactive map to preview spots, get bus route numbers, and view Korean addresses for taxi drivers.</p>
+      </div>
+
+      <div class="map-layout">
+        <!-- Map Sidebar with list of spots -->
+        <div class="map-sidebar">
+          <div class="sidebar-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="mapSearchInput" placeholder="Search spot (e.g. Hahoe, Bridge)...">
+          </div>
+          <div class="spots-list" id="spotsList">
+            <!-- Spots generated via JS -->
+          </div>
+        </div>
+
+        <!-- Leaflet Map Container -->
+        <div class="map-container-box">
+          <div id="andongMap"></div>
+          <div class="map-legend">
+            <span><span class="legend-dot unesco"></span> UNESCO</span>
+            <span><span class="legend-dot scenic"></span> Scenic / Night</span>
+            <span><span class="legend-dot culture"></span> Academy</span>
+            <span><span class="legend-dot food"></span> Food Alley</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Food & Cuisine Section -->
+  <section class="section bg-warm" id="food">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" id="foodBadge">GASTRONOMIC ADVENTURE</span>
+        <h2 class="section-title" id="foodTitle">Flavors You Can Only Taste in Andong</h2>
+        <p class="section-desc" id="foodDesc">Andong has one of Korea's most celebrated regional food cultures. Here is what to order and how to eat it.</p>
+      </div>
+
+      <div class="food-grid" id="foodGrid">
+        <!-- Rendered via JS -->
+      </div>
+
+      <!-- How to order in Korean helper card -->
+      <div class="korean-food-helper">
+        <div class="helper-content">
+          <div class="helper-badge"><i class="fa-solid fa-volume-high"></i> <span id="foodHelperBadge">Useful Dining Phrases for Foreigners</span></div>
+          <div class="phrases-grid">
+            <div class="phrase-card">
+              <span class="phrase-ko">안 맵게 해주세요</span>
+              <span class="phrase-rom">"An maep-ge hae-ju-se-yo"</span>
+              <span class="phrase-en">Please make it not spicy</span>
+            </div>
+            <div class="phrase-card">
+              <span class="phrase-ko">이거 1인분 되나요?</span>
+              <span class="phrase-rom">"I-geo il-in-bun dwe-na-yo?"</span>
+              <span class="phrase-en">Can I order 1 single portion?</span>
+            </div>
+            <div class="phrase-card">
+              <span class="phrase-ko">물 좀 더 주세요</span>
+              <span class="phrase-rom">"Mul jom deo ju-se-yo"</span>
+              <span class="phrase-en">Please give me more water</span>
+            </div>
+            <div class="phrase-card">
+              <span class="phrase-ko">계산해 주세요</span>
+              <span class="phrase-rom">"Gye-san-hae ju-se-yo"</span>
+              <span class="phrase-en">Check/Bill please</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommended Itineraries -->
+  <section class="section" id="itineraries">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" id="itinBadge">CURATED TRAVEL PLANS</span>
+        <h2 class="section-title" id="itinTitle">Tested Travel Itineraries</h2>
+        <p class="section-desc" id="itinDesc">Whether you have a 1-day quick express trip from Seoul or an immersive 2-day hanok stay, follow these proven routes.</p>
+      </div>
+
+      <div class="itinerary-tabs">
+        <button class="itin-tab-btn active" data-itin="1day" id="itinTab1">⚡ 1-Day Express Highlights</button>
+        <button class="itin-tab-btn" data-itin="2day" id="itinTab2">🌿 2-Day Cultural Hanok Retreat</button>
+        <button class="itin-tab-btn" data-itin="foodie" id="itinTab3">🍲 1-Day Heritage & Food Trail</button>
+      </div>
+
+      <div class="itinerary-content" id="itineraryContent">
+        <!-- Populated via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Transport & Wayfinding Guide -->
+  <section class="section bg-light" id="transport">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" id="transBadge">TRANSIT & LOGISTICS</span>
+        <h2 class="section-title" id="transTitle">How to Get Around Andong Like a Pro</h2>
+        <p class="section-desc" id="transDesc">Avoid getting stranded with our clear instructions on trains, city buses, and taxi services.</p>
+      </div>
+
+      <div class="transport-grid">
+        <div class="transport-card">
+          <div class="transport-icon"><i class="fa-solid fa-train"></i></div>
+          <h3 id="transCard1Title">From Seoul (KTX-Eum)</h3>
+          <p id="transCard1P">Take the <strong>KTX-Eum</strong> high-speed train from <strong>Cheongnyangni Station</strong> (Seoul) directly to <strong>Andong Station</strong>.</p>
+          <ul class="transport-list">
+            <li id="transCard1L1"><strong>Duration:</strong> Approx. 2 hours</li>
+            <li id="transCard1L2"><strong>Cost:</strong> ~25,100 KRW (Standard seat)</li>
+            <li id="transCard1L3"><strong>Booking:</strong> Via Korail English App ("Korail Talk") or website</li>
+            <li id="transCard1L4"><strong>Frequency:</strong> Roughly every 1 to 2 hours</li>
+          </ul>
+        </div>
+
+        <div class="transport-card">
+          <div class="transport-icon"><i class="fa-solid fa-bus"></i></div>
+          <h3 id="transCard2Title">Key City Bus Routes</h3>
+          <p id="transCard2P">Buses depart from the bus stops directly in front of Andong KTX Station.</p>
+          <ul class="transport-list">
+            <li id="transCard2L1"><strong>Bus #210 (Direct to Hahoe):</strong> Every 30-40 min, stops right at Hahoe Ticket Booth. (Fare: 1,500 KRW with T-Money)</li>
+            <li id="transCard2L2"><strong>Bus #112 or #113:</strong> Andong Station ➔ Downtown Old Market (Jjimdak Alley).</li>
+            <li id="transCard2L3"><strong>Bus #311 or #312:</strong> Downtown ➔ Woryeonggyo Wooden Bridge.</li>
+            <li id="transCard2L4"><strong>Pro Tip:</strong> Install <em>Naver Map</em> or <em>KakaoMap</em> in English for real-time bus arrivals. Google Maps transit data is limited in Korea.</li>
+          </ul>
+        </div>
+
+        <div class="transport-card">
+          <div class="transport-icon"><i class="fa-solid fa-taxi"></i></div>
+          <h3 id="transCard3Title">Taxis & Kakao T</h3>
+          <p id="transCard3P">Taxis are convenient and affordable for groups or night visits to Woryeonggyo Bridge.</p>
+          <ul class="transport-list">
+            <li id="transCard3L1"><strong>Base Fare:</strong> Starts at 4,000 KRW</li>
+            <li id="transCard3L2"><strong>Ride-Hailing:</strong> Download <strong>Kakao T</strong> (English interface available, accepts foreign credit cards).</li>
+            <li id="transCard3L3"><strong>Taxi Card Generator:</strong> Use our <em>Show Taxi Driver</em> button below to show the exact Korean destination address on your phone screen!</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Interactive Taxi Flashcard Helper -->
+      <div class="taxi-helper-box">
+        <div class="taxi-helper-header">
+          <h3 id="taxiHelperTitle"><i class="fa-solid fa-id-card"></i> Show to Taxi Driver (택시 기사님용 카드)</h3>
+          <p id="taxiHelperDesc">Select your destination to enlarge the Korean name and address for your taxi driver:</p>
+        </div>
+        <div class="taxi-selector">
+          <select id="taxiDestSelect" class="custom-select">
+            <option value="hahoe">Hahoe Folk Village (하회마을 매표소)</option>
+            <option value="woryeonggyo">Woryeonggyo Bridge (월영교 공영주차장)</option>
+            <option value="station">Andong KTX Station (안동역 KTX)</option>
+            <option value="jjimdak">Andong Old Market / Jjimdak Alley (구시장 찜닭골목)</option>
+            <option value="dosan">Dosan Seowon Confucian Academy (도산서원)</option>
+            <option value="bongjeongsa">Bongjeongsa Temple (봉정사 매표소)</option>
+          </select>
+          <button class="btn btn-primary" id="openTaxiCardBtn"><i class="fa-solid fa-expand"></i> <span id="btnDisplayTaxiCard">Display Fullscreen Card</span></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Essential Survival Tips & Etiquette -->
+  <section class="section" id="tips">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge" id="tipsBadge">LOCAL PROTOCOL & TIPS</span>
+        <h2 class="section-title" id="tipsTitle">International Traveler Survival Guide</h2>
+        <p class="section-desc" id="tipsDesc">Essential practical knowledge to make your journey through Andong smooth, respectful, and memorable.</p>
+      </div>
+
+      <div class="tips-accordion" id="tipsAccordion">
+        <div class="accordion-item active">
+          <button class="accordion-header">
+            <span><i class="fa-solid fa-house-chimney-user"></i> <span id="tip1Head">1. Respecting Living Hanok Residents in Hahoe Village</span></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body" id="tip1Body">
+            <p>Hahoe Village is <strong>not</strong> an artificial theme park—real families (descendants of the Ryu clan) have lived here for generations. Please remember:</p>
+            <ul>
+              <li>Do not enter private courtyards if the outer gate (Daemun) is closed.</li>
+              <li>Keep noise levels down in the early morning and after sunset.</li>
+              <li>Always ask permission before taking close-up portraits of residents.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span><i class="fa-solid fa-shoe-prints"></i> <span id="tip2Head">2. Hanok & Temple Etiquette (Shoes & Flooring)</span></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body" id="tip2Body">
+            <p>In traditional Korean architecture (Hanok, pavilions, tearooms, and temple prayer halls):</p>
+            <ul>
+              <li><strong>Always remove your shoes</strong> before stepping onto wooden wooden porches (Maru) or indoor ondol floors. Slippers or bare feet/socks only.</li>
+              <li>Wear comfortable, easy-to-slip-on walking shoes because you will be taking them off frequently.</li>
+              <li>At Buddhist temples like Bongjeongsa, do not step directly on the threshold beam of wooden doorways; step over it.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span><i class="fa-solid fa-masks-theater"></i> <span id="tip3Head">3. Catching the Famous Hahoe Mask Dance (Byeolsingut)</span></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body" id="tip3Body">
+            <p>The UNESCO-inscribed <strong>Hahoe Mask Dance Drama</strong> is performed regularly at the Mask Dance Theater near the entrance of Hahoe Village:</p>
+            <ul>
+              <li><strong>Schedule:</strong> Usually Wednesday to Sunday at 2:00 PM (March - December). Arrive 20 minutes early for good seats.</li>
+              <li><strong>Admission:</strong> Included free with your Hahoe Village ticket!</li>
+              <li><strong>Language:</strong> Subtitles in English, Japanese, and Chinese are displayed on the electronic boards beside the stage.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span><i class="fa-solid fa-mobile-screen"></i> <span id="tip4Head">4. Crucial Apps to Download Before Arriving</span></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body" id="tip4Body">
+            <p>Due to national spatial data regulations, Google Maps has limited walking directions and transit tracking in South Korea. We strongly suggest downloading:</p>
+            <ul>
+              <li><strong>Naver Map:</strong> Fully available in English; accurate bus timing, walking navigation, and opening hours.</li>
+              <li><strong>Papago:</strong> The most natural Korean-English voice and photo translator (by Naver).</li>
+              <li><strong>Kakao T:</strong> To call taxis without needing to speak Korean to the driver.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <button class="accordion-header">
+            <span><i class="fa-solid fa-wine-glass"></i> <span id="tip5Head">5. Andong Soju Warning (45% ABV!)</span></span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="accordion-body" id="tip5Body">
+            <p>Traditional Andong Soju is not the green-bottle soju found in convenience stores; it is a meticulously distilled artisan liquor made from pure rice, yeast, and pure underground water. It has an alcohol content of <strong>40% to 45% ABV</strong>. Sip it slowly from small porcelain cups to savor its smooth, floral aroma!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Budget & Cost Estimator Calculator -->
+  <section class="section bg-warm" id="calculator">
+    <div class="container">
+      <div class="calculator-card">
+        <div class="calc-header">
+          <div class="calc-badge"><i class="fa-solid fa-calculator"></i> <span id="calcBadge">TRIP PLANNER TOOL</span></div>
+          <h2 id="calcTitle">Andong Travel Cost Estimator (KRW / USD)</h2>
+          <p id="calcDesc">Estimate your trip budget including high-speed train, hanok stay, meals, and entry tickets.</p>
+        </div>
+
+        <div class="calc-form">
+          <div class="calc-input-group">
+            <label for="calcDays"><i class="fa-regular fa-calendar-days"></i> <span id="calcDaysLabel">Number of Days</span></label>
+            <select id="calcDays" class="custom-select">
+              <option value="1">1 Day (Day Trip)</option>
+              <option value="2" selected>2 Days / 1 Night (Recommended)</option>
+              <option value="3">3 Days / 2 Nights (Relaxed)</option>
+            </select>
+          </div>
+
+          <div class="calc-input-group">
+            <label for="calcPeople"><i class="fa-solid fa-user-group"></i> <span id="calcPeopleLabel">Travelers</span></label>
+            <select id="calcPeople" class="custom-select">
+              <option value="1">1 Solo Traveler</option>
+              <option value="2" selected>2 Persons (Couple/Friends)</option>
+              <option value="4">4 Persons (Family/Group)</option>
+            </select>
+          </div>
+
+          <div class="calc-input-group">
+            <label for="calcHotel"><i class="fa-solid fa-bed"></i> <span id="calcHotelLabel">Accommodation Style</span></label>
+            <select id="calcHotel" class="custom-select">
+              <option value="0">Day Trip (No Hotel)</option>
+              <option value="70000">Modern Hotel / Guesthouse (70,000 KRW/night)</option>
+              <option value="130000" selected>Authentic Hanok Guesthouse (130,000 KRW/night)</option>
+              <option value="250000">Luxury Heritage Hanok Villa (250,000 KRW/night)</option>
+            </select>
+          </div>
+
+          <div class="calc-input-group">
+            <label for="calcTransit"><i class="fa-solid fa-car"></i> <span id="calcTransitLabel">Local Transportation</span></label>
+            <select id="calcTransit" class="custom-select">
+              <option value="bus" selected>City Buses & Walking (~6,000 KRW/day)</option>
+              <option value="taxi">Taxis for convenience (~35,000 KRW/day)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <div class="result-breakdown">
+            <div><span class="break-label">KTX Return from Seoul:</span> <span id="resKtx">₩100,400</span></div>
+            <div><span class="break-label">Accommodation:</span> <span id="resHotel">₩130,000</span></div>
+            <div><span class="break-label">Food & Dining (Jjimdak, etc.):</span> <span id="resFood">₩120,000</span></div>
+            <div><span class="break-label">Sightseeing Tickets:</span> <span id="resTickets">₩20,000</span></div>
+            <div><span class="break-label">Local Transit:</span> <span id="resTransit">₩24,000</span></div>
+          </div>
+          <div class="result-total">
+            <div class="total-label" id="calcTotalLabel">Total Estimated Budget:</div>
+            <div class="total-amount" id="resTotalKrw">₩394,400 KRW</div>
+            <div class="total-usd" id="resTotalUsd">Approx. $295 USD (for 2 people)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fullscreen Modal for Destination Detail -->
+  <div class="modal-overlay" id="detailModal">
+    <div class="modal-card">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen Taxi Driver Card Modal -->
+  <div class="modal-overlay" id="taxiModal">
+    <div class="modal-card taxi-modal-content">
+      <button class="modal-close" id="taxiCloseBtn">&times;</button>
+      <div class="taxi-card-display" id="taxiCardDisplay">
+        <span class="taxi-badge">🚕 택시 기사님께 보여주세요 (Show to Taxi Driver)</span>
+        <h2 id="taxiCardTitleKo" class="taxi-title-ko">하회마을 매표소</h2>
+        <p id="taxiCardAddressKo" class="taxi-addr-ko">경북 안동시 풍천면 하회종가길 40</p>
+        <div class="taxi-eng-guide">
+          <span class="en-title" id="taxiCardTitleEn">Hahoe Folk Village Ticket Office</span>
+          <span class="en-note" id="taxiCardNote">"기사님, 여기로 가주세요" (Driver, please take me here)</span>
+        </div>
+        <button class="btn btn-secondary" onclick="navigator.clipboard.writeText(document.getElementById('taxiCardAddressKo').innerText); alert('Korean address copied!');">
+          <i class="fa-regular fa-copy"></i> Copy Korean Address
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-hanja">安東</span>
+          <span class="logo-text">ANDONG TRAVEL GUIDE</span>
+        </div>
+        <p id="footerDesc">A non-commercial, dedicated traveler resource created to guide global travelers through the historical charm and vibrant culinary landscape of Andong, Gyeongsangbuk-do, Republic of Korea.</p>
+        <div class="emergency-contact">
+          <span><i class="fa-solid fa-phone"></i> Korea Travel Hotline: <strong>1330</strong> (Free English assistance 24/7)</span>
+          <span><i class="fa-solid fa-shield-halved"></i> Police: <strong>112</strong> | Medical: <strong>119</strong></span>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4 id="footerNavTitle">Navigation</h4>
+        <ul>
+          <li><a href="#destinations">Must-Visit Sites</a></li>
+          <li><a href="#food">Andong Food & Drink</a></li>
+          <li><a href="#itineraries">Suggested Itineraries</a></li>
+          <li><a href="#map-section">Interactive Map</a></li>
+          <li><a href="#transport">Seoul-Andong Transit</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4 id="footerExtTitle">Official External Resources</h4>
+        <ul>
+          <li><a href="https://www.letskorail.com/" target="_blank" rel="noopener">KORAIL Train Tickets <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><a href="https://english.visitkorea.or.kr/" target="_blank" rel="noopener">VisitKorea (KTO) <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+          <li><a href="http://www.andongtour.com/" target="_blank" rel="noopener">Andong Culture & Tourism <i class="fa-solid fa-arrow-up-right-from-square"></i></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom text-center">
+      <p id="footerCopy">&copy; 2026 Discover Andong. Built for international explorers with HTML5, CSS3 & JavaScript.</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet Map JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="script.js"></script>
+</body>
+</html>

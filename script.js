@@ -482,6 +482,7 @@ const i18n = {
     navMap: "Interactive Map",
     navTransport: "Transport",
     navTips: "Survival Tips",
+    cityHallBtn: "City Hall",
     
     // Hero
     heroTag: "The Spiritual Capital of Korea",
@@ -611,6 +612,7 @@ const i18n = {
     navMap: "관광 지도",
     navTransport: "교통 가이드",
     navTips: "여행 꿀팁 & 에티켓",
+    cityHallBtn: "안동시청",
 
     // Hero
     heroTag: "한국 정신문화의 수도, 안동",
@@ -769,6 +771,7 @@ function applyLanguage(lang) {
   safeSetText('navMap', t.navMap);
   safeSetText('navTransport', t.navTransport);
   safeSetText('navTips', t.navTips);
+  safeSetText('cityHallBtnText', t.cityHallBtn);
 
   // Hero
   safeSetText('heroTagText', t.heroTag);

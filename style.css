@@ -281,7 +281,38 @@ img {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+}
+
+.cityhall-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(27, 59, 54, 0.08);
+  color: var(--primary);
+  border: 1px solid rgba(27, 59, 54, 0.18);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.cityhall-btn:hover {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(27, 59, 54, 0.18);
+}
+
+.cityhall-btn i.fa-building-columns {
+  color: var(--accent);
+}
+
+.cityhall-btn:hover i.fa-building-columns {
+  color: #f7d6a5;
 }
 
 .lang-selector {
